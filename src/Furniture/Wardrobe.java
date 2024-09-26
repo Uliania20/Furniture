@@ -38,4 +38,10 @@ public class Wardrobe implements Discountable, Customizable { // Теперь т
     public double applyDiscount(double discountPercentage) {
         return price - (price * discountPercentage / 100);
     }
+
+    @Override
+    public void updateDescription(String newDescription) {
+        this.description = newDescription;
+        System.out.println("Описание обновлено на: " + this.description);
+    }
 }

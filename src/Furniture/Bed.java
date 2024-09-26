@@ -11,6 +11,13 @@ public class Bed extends AbstractFurniture {
         this.brand = brand;
     }
 
+    public int getLength() {
+        return length;
+    }
+
+    public int getWidth() {
+        return width;
+    }
 
 
     public String f(String brandName) {
@@ -23,6 +30,6 @@ public class Bed extends AbstractFurniture {
 
     @Override
     public int volumeCalculation(int length, int width, int height) {
-        return 0;
+        return length * width * height;
     }
 }

@@ -9,8 +9,9 @@ abstract class AbstractCustomizableFurniture implements Customizable {
         this.description = description; // Установка описания
     }
 
-    // Метод для получения описания
-    public String getDescription() {
-        return description; // Возвращает описание
-    } // Устанавливает описание
+    @Override
+    public void updateDescription(String newDescription) {
+        this.description = newDescription;
+        System.out.println("Описание обновлено на: " + this.description);
+    }
 }
