@@ -1,5 +1,5 @@
 package Furniture;
 
 interface Discountable extends BrandIdentifier, PriceCalculator, DescriptionProvider {
-    public double applyDiscount(double discountPercentage);
+    double applyDiscount(double discountPercentage);
 }

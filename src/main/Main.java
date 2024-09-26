@@ -5,27 +5,48 @@ import Furniture.*;
 public class Main
 {
     public static void main(String[] args){
-// Создаем экземпляры мебели
-        Wardrobe wardrobe = new Wardrobe("IKEA", "Современный шкаф", 15000, 100, 200);
-        Table table = new Table(75, 120); // Высота 75 см, ширина 120 см
-        Sofa sofa = new Sofa(80, 90, "Ashley", 200); // Ширина 80 см, высота 90 см, длина 200 см
-        ChestOfDrawers chestOfDrawers = new ChestOfDrawers("Деревянный комод", 12000);
-        Bed bed = new Bed(160, 200, "Sleepwell"); // Ширина 160 см, длина 200 см
+        Bed bed = new Bed(200, 180, "IKEA");
+        Sofa sofa = new Sofa(100, 90, "IKEA", 220);
+        ChestOfDrawers chestOfDrawers = new ChestOfDrawers("Деревянный комод", 15000);
+        Wardrobe wardrobe = new Wardrobe("IKEA", "Шкаф с зеркалом", 30000, 120, 200);
 
-        // Отображаем информацию о каждом предмете мебели
-        System.out.println(wardrobe);
-        System.out.println("Цена со скидкой (10%): " + wardrobe.applyDiscount(10));
-
-        System.out.println(table);
-        System.out.println("Площадь стола: " + table.dimensionCalculator(table.getWidth(), table.getHeight()));
-
-        System.out.println(sofa);
-        System.out.println("Объем софы: " + sofa.volumeCalculation(sofa.length, sofa.width, sofa.height));
-
-        System.out.println(chestOfDrawers);
-        System.out.println("Цена со скидкой (15%): " + chestOfDrawers.applyDiscount(15));
-
+        // Вывод информации о мебели
+        System.out.println("Информация о мебели:");
         System.out.println(bed);
-        System.out.println("Объем кровати: " + bed.volumeCalculation(bed.length, bed.width, 30)); // Высота кровати условно 30 см
+        System.out.println(sofa);
+        System.out.println(chestOfDrawers);
+        System.out.println(wardrobe);
+
+
+        chestOfDrawers.setDescription("Современный комод");
+        wardrobe.setDescription("Шкаф с двумя дверями");
+
+        // Вывод обновленных описаний
+        System.out.println("\nОбновленные описания:");
+        System.out.println(bed);
+        System.out.println(sofa);
+        System.out.println(chestOfDrawers);
+        System.out.println(wardrobe);
+
+        // Применение скидок к цене
+        double discountPercentageForWardrobe = 10; // Скидка 10%
+        double discountPercentageForChest = 15; // Скидка 15%
+
+        double discountedPriceWardrobe = wardrobe.applyDiscount(discountPercentageForWardrobe);
+        double discountedPriceChest = chestOfDrawers.applyDiscount(discountPercentageForChest);
+
+        // Вывод информации о скидках
+        System.out.println("\nЦена после применения скидки:");
+        System.out.println("Шкаф: " + discountedPriceWardrobe);
+        System.out.println("Комод: " + discountedPriceChest);
+
+        // Рассчет площади и объема для кровати и софы
+        int bedVolume = bed.volumeCalculation(bed.getLength(), bed.getWidth(), 50); // Используем произвольную высоту
+        int sofaVolume = sofa.volumeCalculation(sofa.getLength(), sofa.getWidth(), sofa.getHeight()); // Используем высоту софы
+
+        // Вывод объемов
+        System.out.println("\nОбъемы:");
+        System.out.println("Объем кровати: " + bedVolume + " куб. см");
+        System.out.println("Объем софы: " + sofaVolume + " куб. см");
     }
 }
